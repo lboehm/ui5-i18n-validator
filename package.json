@@ -1,6 +1,6 @@
 {
   "name": "ui5-i18n-validator",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Checking i18n files for missing keys",
   "main": "./lib/index.js",
   "bin": {
