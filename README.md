@@ -103,8 +103,7 @@ If there are hardcoded texts, the output will look like this:
 ```
 Checking hardcoded texts:
 ‼ Following propably hardcoeded texts were found in View1.xml
-   ×  attribute: title           value: View 1
-   ×  attribute: text            value: Call mock service
+   ×  line: 9    attribute: title        value: View 1
 ```
 
 In case there are no hardcoded texts found, the output will look like this:
@@ -116,12 +115,19 @@ Checking hardcoded texts:
 
 ### Limitations
 
-To ensure that there is definitely no hardcoded texts, can be very complex. So there are some limitations
+Ensuring that there are definitely no hardcoded texts, can be very complex. So there are some limitations:
 
 - Only `xml` files are checked. So hardcoded texts from JavaScript files won't be found
 - Only some xml attributes are currently checked. As of now, the following attributes are checked:
-   - `title`
-   - `text`
+  - `title`,
+  - `subtitle`,
+  - `text`,
+  - `placeholder`,
+  - `headerText`,
+  - `objectTitle`,
+  - `objectSubtitle`,
+  - `secondTitle`,
+  - `label`
 
 # Contribute
 

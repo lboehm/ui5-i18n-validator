@@ -8,7 +8,8 @@ const { analyzeHardcodedTexts, printHardCodedTexts } = require('./rules/hardcode
 function checkTranslations() {
   const webappPath = path.join(process.cwd(), './webapp/');
   const i18nPath = path.join(webappPath, 'i18n');
-  // const fullPath = './test/testdata/webapp/i18n';
+  // const webappPath = './test/testdata/webapp/';
+  // const i18nPath = './test/testdata/webapp/i18n';
 
   const filesContent = getTranslations(i18nPath);
 

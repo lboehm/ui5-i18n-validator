@@ -5,7 +5,14 @@ const { log } = console;
 
 const attributes = [
   'title',
-  'text'
+  'subtitle',
+  'text',
+  'placeholder',
+  'headerText',
+  'objectTitle',
+  'objectSubtitle',
+  'secondTitle',
+  'label'
 ];
 
 function textIsBoundToModel(attrValue) {
@@ -65,7 +72,7 @@ function printHardCodedTexts(hardcodedTexts) {
     log(logSymbols.warning, `Following propably hardcoeded texts were found in ${chalk.red(h.fileName)}`);
 
     h.findings.forEach((f) => {
-      log(`   ${logSymbols.error}`, ` attribute: ${f.attr} \t value: ${f.value}`);
+      log(`   ${logSymbols.error}`, ` line: ${f.line} \t attribute: ${f.attr} \t value: ${f.value}`);
     });
   }
 

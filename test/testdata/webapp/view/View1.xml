@@ -6,9 +6,9 @@
     xmlns:smartTable="sap.ui.comp.smarttable" controllerName="boilerplate.controller.View1" 
     xmlns:html="http://www.w3.org/1999/xhtml" 
     xmlns:table="sap.ui.table">
-    <Page title="{i18n>viewTitle}" id="page">
+    <Page title="View 1" id="page">
         <content>
-            <Button text="{i18n>callMock}" press="callMockService" />
+            <Button text="Call mock service" press="callMockService" />
         </content>
         <footer>
             <Bar design="Auto">
