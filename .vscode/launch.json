@@ -8,7 +8,8 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}\\src\\index.js"
+            "program": "${workspaceFolder}\\src\\index.js",
+            "args": ["-b", "-r missing-keys empty-keys"]
         }
     ]
 }

@@ -1,7 +1,7 @@
 {
   "name": "ui5-i18n-validator",
-  "version": "0.1.5",
-  "description": "Checking i18n files for missing keys",
+  "version": "0.2.1",
+  "description": "Checking translations for UI5 applications",
   "main": "./lib/index.js",
   "bin": {
     "ui5-i18n-validator": "./lib/index.js"
@@ -41,7 +41,8 @@
   "homepage": "https://github.com/lboehm/ui5-i18n-validator#readme",
   "dependencies": {
     "chalk": "^2.4.2",
-    "log-symbols": "^3.0.0"
+    "log-symbols": "^3.0.0",
+    "yargs": "^14.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
