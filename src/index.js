@@ -23,7 +23,11 @@ function runValidations() {
     log();
 
     const { bailOnError } = argv;
-    const rules = argv.rules.trim().split(' ').filter(f => f.trim() !== '');
+
+    let rules = [];
+    if (!argv.rules) {
+      rules = argv.rules.trim().split(' ').filter(f => f.trim() !== '');
+    }
 
     checkTranslations(bailOnError, rules);
     // eslint-disable-next-line no-empty

@@ -1,6 +1,6 @@
 {
   "name": "ui5-i18n-validator",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Checking translations for UI5 applications",
   "main": "./lib/index.js",
   "bin": {

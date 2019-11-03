@@ -16,7 +16,7 @@ const attributes = [
 ];
 
 function textIsBoundToModel(attrValue) {
-  return attrValue.startsWith('{');
+  return attrValue.trim().startsWith('{');
 }
 
 function analyzeHardcodedTexts(xmlFiles) {

@@ -33,6 +33,7 @@ function checkTranslations(bailOnError, rules) {
     printEmptyKeys(emptyKeysByLanguage);
   }
 
+  // Check hardcoded texts
   if (rules.length === 0
     || (rules.length > 0 && rules.includes('hardcoded-texts'))) {
     const xmlViews = getViews(webappPath);

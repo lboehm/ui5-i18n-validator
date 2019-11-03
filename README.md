@@ -123,10 +123,14 @@ Checking empty keys:
 
 ## Hardcoded texts
 
-This rule will check if there are any texts, which do not refer to an i18n model. For example:
+Basically this rule checks all xml files in the `webapp` folder for attributes, which should be translated (for a complete list of attributes see Chapter [Limitations](#limitations)). If an attributes value does not start with an `{`, the validator assumes, that it's not translated. So:
 
 ```xml
+<!-- This would be an error -->
 <Page title="View 1" id="page">
+
+<!-- This would be fine -->
+<Page title="{i18n>viewTitle}" id="page">
 ```
 
 If there are hardcoded texts, the output will look like this:
