@@ -58,7 +58,7 @@ Following rules exist:
 - `empty-keys`
 - `hardcoded-texts`
 
-> For a detailed description of the rules see chapter (Validation rules){#validation-rules}
+> For a detailed description of the rules see chapter [Validation rules](#validation-rules).
 
 If the parameter is not provided, all rules will be used for validation.
 
