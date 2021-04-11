@@ -5,26 +5,26 @@ const chalk = require('chalk');
 const logSymbols = require('log-symbols');
 const path = require('path');
 
-
 const { log } = console;
 
 function getTranslationFiles(dirPath) {
-  const getFiles = source => readdirSync(source, { withFileTypes: true })
-    .filter(dirent => dirent.isFile() && (/i18n.properties/.test(dirent.name) || /i18n_(.*?)\.properties/.test(dirent.name)))
-    .map((dirent) => {
-      let language;
-      if (/i18n.properties/.test(dirent.name)) {
-        language = 'default';
-      } else if (/i18n_(.*?)\.properties/.test(dirent.name)) {
-        // eslint-disable-next-line prefer-destructuring
-        language = /i18n_(.*?)\.properties/.exec(dirent.name)[1];
-      }
+  const getFiles = (source) =>
+    readdirSync(source, { withFileTypes: true })
+      .filter((dirent) => dirent.isFile() && (/i18n.properties/.test(dirent.name) || /i18n_(.*?)\.properties/.test(dirent.name)))
+      .map((dirent) => {
+        let language;
+        if (/i18n.properties/.test(dirent.name)) {
+          language = 'default';
+        } else if (/i18n_(.*?)\.properties/.test(dirent.name)) {
+          // eslint-disable-next-line prefer-destructuring
+          language = /i18n_(.*?)\.properties/.exec(dirent.name)[1];
+        }
 
-      return {
-        fileName: dirent.name,
-        language
-      };
-    });
+        return {
+          fileName: dirent.name,
+          language,
+        };
+      });
 
   let files;
   try {
@@ -49,26 +49,29 @@ function getTranslations(dirPath) {
     const f = readFileSync(`${dirPath}/${file.fileName}`).toString();
     const linesArray = f.split('\n');
 
-    const values = linesArray.map((line) => {
-      // remove linebreaks
-      let cleansed = line.replace(/\r?\n|\r/, '');
-      // trim
-      cleansed = cleansed.trim();
-      return cleansed;
-    }).filter((line) => {
-      const lineEmpty = !line;
-      const lineIsComment = line.startsWith('#');
+    const values = linesArray
+      .map((line) => {
+        // remove linebreaks
+        let cleansed = line.replace(/\r?\n|\r/, '');
+        // trim
+        cleansed = cleansed.trim();
+        return cleansed;
+      })
+      .filter((line) => {
+        const lineEmpty = !line;
+        const lineIsComment = line.startsWith('#');
 
-      return !(lineEmpty || lineIsComment);
-    }).map(line => ({
-      key: /.+?(?==)/.exec(line)[0].trim(),
-      value: /=(.*)/.exec(line)[1].trim()
-    }));
+        return !(lineEmpty || lineIsComment);
+      })
+      .map((line) => ({
+        key: /.+?(?==)/.exec(line)[0].trim(),
+        value: /=(.*)/.exec(line)[1].trim(),
+      }));
 
     filesContent.push({
       fileName: file.fileName,
       language: file.language,
-      values
+      values,
     });
   }
 
@@ -99,7 +102,7 @@ function getViews(dirPath) {
     return {
       filePath,
       fileName: path.basename(filePath),
-      content: linesArray
+      content: linesArray,
     };
   });
 
@@ -108,5 +111,5 @@ function getViews(dirPath) {
 
 module.exports = {
   getTranslations,
-  getViews
+  getViews,
 };

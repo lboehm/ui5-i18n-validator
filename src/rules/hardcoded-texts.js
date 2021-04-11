@@ -3,17 +3,7 @@ const logSymbols = require('log-symbols');
 
 const { log } = console;
 
-const attributes = [
-  'title',
-  'subtitle',
-  'text',
-  'placeholder',
-  'headerText',
-  'objectTitle',
-  'objectSubtitle',
-  'secondTitle',
-  'label'
-];
+const attributes = ['title', 'subtitle', 'text', 'placeholder', 'headerText', 'objectTitle', 'objectSubtitle', 'secondTitle', 'label'];
 
 function textIsBoundToModel(attrValue) {
   return attrValue.trim().startsWith('{');
@@ -38,11 +28,11 @@ function analyzeHardcodedTexts(xmlFiles) {
         const attr = match[1];
         const value = match[2];
 
-        if (attributes.includes(attr) && !(textIsBoundToModel(value))) {
+        if (attributes.includes(attr) && !textIsBoundToModel(value)) {
           fileFindings.push({
             line: lineCounter,
             attr,
-            value
+            value,
           });
         }
       }
@@ -51,7 +41,7 @@ function analyzeHardcodedTexts(xmlFiles) {
     if (fileFindings.length > 0) {
       allFindings.push({
         fileName: file.fileName,
-        findings: fileFindings
+        findings: fileFindings,
       });
     }
   });
@@ -81,5 +71,5 @@ function printHardCodedTexts(hardcodedTexts) {
 
 module.exports = {
   analyzeHardcodedTexts,
-  printHardCodedTexts
+  printHardCodedTexts,
 };

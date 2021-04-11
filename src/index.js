@@ -9,7 +9,7 @@ const { argv } = require('yargs')
     demandOption: true,
     default: ['missing-keys empty-keys hardcoded-texts'],
     describe: 'defines which rules will be applied',
-    type: 'string'
+    type: 'string',
   })
   .help('help');
 
@@ -26,7 +26,10 @@ function runValidations() {
 
     let rules = [];
     if (!argv.rules) {
-      rules = argv.rules.trim().split(' ').filter(f => f.trim() !== '');
+      rules = argv.rules
+        .trim()
+        .split(' ')
+        .filter((f) => f.trim() !== '');
     }
 
     checkTranslations(bailOnError, rules);
@@ -37,7 +40,6 @@ function runValidations() {
     log(chalk.yellow('<<< validating i18n files <<<'));
   }
 }
-
 
 runValidations();
 // module.exports = semVerManifest;

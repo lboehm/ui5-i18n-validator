@@ -1,0 +1,7 @@
+{
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "printWidth": 200,
+  "xmlSelfClosingSpace": true,
+  "xmlWhitespaceSensitivity": "strict"
+}

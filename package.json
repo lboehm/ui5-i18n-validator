@@ -1,6 +1,6 @@
 {
   "name": "ui5-i18n-validator",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Checking translations for UI5 applications",
   "main": "./lib/index.js",
   "bin": {
@@ -15,8 +15,8 @@
     "test:watch": "npm test -- --watch",
     "test:examples": "node examples/",
     "cover": "nyc --check-coverage npm run test:only",
-    "lint": "eslint src test",
-    "lint-fix": "eslint src test --fix",
+    "lint": "eslint src test && prettier --check src test",
+    "lint-fix": "eslint src test --fix && prettier --write src test",
     "build": "cross-env BABEL_ENV=production babel src --out-dir lib",
     "prepare": "npm run clean && npm run test && npm run build"
   },
@@ -53,11 +53,11 @@
     "babel-preset-minify": "^0.5.0",
     "chai": "^4.1.2",
     "cross-env": "^5.1.3",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0",
+    "prettier": "^2.2.1",
+    "@prettier/plugin-xml": "^0.12.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.2.0",
     "mocha": "^6.1.3",
     "nyc": "^13.3.0",
     "rimraf": "^2.6.2"

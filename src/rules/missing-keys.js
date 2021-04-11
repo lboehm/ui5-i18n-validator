@@ -3,7 +3,6 @@ const logSymbols = require('log-symbols');
 
 const { log } = console;
 
-
 function analyzeMissingKeys(filesContent) {
   const missingKeysByLanguage = [];
 
@@ -12,11 +11,11 @@ function analyzeMissingKeys(filesContent) {
       // eslint-disable-next-line no-continue
       if (f.language === file.language) continue;
 
-      const fileContent = filesContent.find(i => (i.language === file.language));
-      const otherLanguageArray = filesContent.find(i => (i.language === f.language));
+      const fileContent = filesContent.find((i) => i.language === file.language);
+      const otherLanguageArray = filesContent.find((i) => i.language === f.language);
 
       const diff = fileContent.values.filter((i) => {
-        const isPresent = otherLanguageArray.values.find(line => (line.key === i.key));
+        const isPresent = otherLanguageArray.values.find((line) => line.key === i.key);
 
         return !isPresent;
       });
@@ -25,7 +24,7 @@ function analyzeMissingKeys(filesContent) {
         missingKeysByLanguage.push({
           language: file.language,
           otherLanguage: f.language,
-          missingKeys: diff
+          missingKeys: diff,
         });
       }
     }
@@ -56,5 +55,5 @@ function printMissingKeys(missingKeysByLanguage) {
 
 module.exports = {
   analyzeMissingKeys,
-  printMissingKeys
+  printMissingKeys,
 };
